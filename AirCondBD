@@ -1,0 +1,22 @@
+Добавим в проект пакеты Entity Framework и Npgsql.EntityFramework
+
+1.
+create table Walls(
+	Id Serial NOT NULL PRIMARY KEY UNIQUE,
+	Name Character Varying(100) NOT NULL,
+	Value FLOAT);
+
+insert into walls(id, name, value) VALUES (DEFAULT, 'Железобетон', 1.69);insert into walls(id, name, value) VALUES (DEFAULT, 'Древесина(дуб)', 0.1);insert into walls(id, name, value) VALUES (DEFAULT, 'Древесина(сосна, ель)', 0.18);insert into walls(id, name, value) VALUES (DEFAULT, 'Пено-газобетон', 0.29);
+insert into walls(id, name, value) VALUES (DEFAULT, 'Кладка из керамзитобетонных блоков', 0.66);
+insert into walls(id, name, value) VALUES (DEFAULT, 'Кладка из обычного кирпича', 0.56);2.create table dbo."Windows"(	Id Serial NOT NULL PRIMARY KEY UNIQUE,	Name Character Varying(100) NOT NULL,	Value FLOAT);
+
+insert into dbo."Windows"(Id, Name, Value) VALUES (DEFAULT, 'Однокамерный стеклопакет', 0.38);
+insert into dbo."Windows"(Id, Name, Value) VALUES (DEFAULT, 'Двухкамерный стеклопакет', 0.52);
+
+5.
+create table dbo."Doors"(	Id Serial NOT NULL PRIMARY KEY UNIQUE,	Name Character Varying(100) NOT NULL,	Value FLOAT);
+
+insert into dbo."Doors"(Id, Name, Value) VALUES (DEFAULT, 'Древесина(сосна, ель)', 0.18);
+insert into dbo."Doors"(Id, Name, Value) VALUES (DEFAULT, 'Древесина(дуб)', 0.1);
+insert into dbo."Doors"(Id, Name, Value) VALUES (DEFAULT, 'Фанера', 0.12);
+insert into dbo."Doors"(Id, Name, Value) VALUES (DEFAULT, 'Сталь', 58);

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AirCondSystem.Models.Window>
+
+@using (Ajax.BeginForm("CalcWindows", new AjaxOptions { UpdateTargetId = "reswindows" }))
+{
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Вид фасада</span></div>
+        <div>
+            <select name="side">
+                <option>С, В, С-В, С-З</option>
+                <option>Ю, З, Ю-В, Ю-З</option>
+            </select>
+        </div>
+    </div>
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Вид остекления</span></div>
+        <div>
+            <select name="r">
+                @foreach (AirCondSystem.Models.Window b in Model)
+                {
+                    <option>
+                        @b.Value
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Общая площадь, кв.м.</span></div>
+        <div>
+            <input type="text" name="f" required />
+        </div>
+    </div>
+    <div class="btnCalc">
+        <input type="submit" value="Расчет" class="btn btn-default" />
+    </div>
+
+    <div id="reswindows">
+
+    </div>
+
+    <hr />
+}

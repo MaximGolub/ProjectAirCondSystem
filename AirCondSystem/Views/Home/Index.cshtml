@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Главная страница";
+}
+
+@Scripts.Render("~/scripts/jquery-3.3.1.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+@Styles.Render("~/content/site.css")
+
+<main>
+    <header>
+        <div class="upelement">
+            <h1>Расчет теплопотерь</h1>
+        </div>
+    </header>
+    <article>
+        <header>
+            <h2>Теплопотери через наружные стены:</h2>
+        </header>
+        @Html.Action("WallsPartial")
+    </article>
+    <article>
+        <header>
+            <h2>Теплопотери через окна:</h2>
+        </header>
+        @Html.Action("WindowsPartial")
+    </article>
+    <article>
+        <header>
+            <h2>Теплопотери через потолок:</h2>
+        </header>
+        @Html.Action("CeilingPartial")
+    </article>
+    <article>
+        <header>
+            <h2>Теплопотери через пол:</h2>
+        </header>
+        @Html.Action("FloorPartial")
+    </article>
+    <article>
+        <header>
+            <h2>Теплопотери через наружные двери:</h2>
+        </header>
+        @Html.Action("DoorsPartial")
+    </article>
+    <article>
+        <header>
+            <h2>Общая величина теплопотерь:</h2>
+        </header>
+        @using (Ajax.BeginForm("CalcAll", new AjaxOptions { UpdateTargetId = "resall" }))
+        {
+            <div class="btnCalc">
+                <input type="submit" value="Расчет" class="btn btn-default" />
+            </div>
+
+            <div id="resall">
+
+            </div>
+        }
+    </article>
+</main>

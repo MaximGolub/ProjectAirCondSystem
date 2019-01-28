@@ -1,0 +1,41 @@
+﻿
+@using (Ajax.BeginForm("CalcCeiling", new AjaxOptions { UpdateTargetId = "resceiling" }))
+{
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Вид потолка</span></div>
+        <div>
+            <select name="side">
+                <option>Чердачное перекрытие</option>
+                <option>Кровля</option>
+                <option>Перекрытие</option>
+            </select>
+        </div>
+    </div>
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Материал</span></div>
+        <div>
+
+        </div>
+    </div>
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Общая площадь, кв.м.</span></div>
+        <div>
+            <input type="text" name="f" required />
+        </div>
+    </div>
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Толщина потолка, м.</span></div>
+        <div>
+            <input type="text" name="j" required />
+        </div>
+    </div>
+    <div class="btnCalc">
+        <input type="submit" value="Расчет" class="btn btn-default" />
+    </div>
+
+    <div id="resceiling">
+
+    </div>
+
+    <hr />
+}

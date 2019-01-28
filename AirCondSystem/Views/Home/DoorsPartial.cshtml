@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AirCondSystem.Models.Door>
+
+@using (Ajax.BeginForm("CalcDoors", new AjaxOptions { UpdateTargetId = "resdoors" }))
+{
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Вид фасада</span></div>
+        <div>
+            <select name="side">
+                <option>С, В, С-В, С-З</option>
+                <option>Ю, З, Ю-В, Ю-З</option>
+            </select>
+        </div>
+    </div>
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Материал</span></div>
+        <div>
+            <select name="l">
+                @foreach (AirCondSystem.Models.Door b in Model)
+                {
+                    <option>
+                        @b.Value
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Общая площадь, кв.м.</span></div>
+        <div>
+            <input type="text" name="f" required />
+        </div>
+    </div>
+    <div class="betweenBlock">
+        <div class="betweenBlockWidth"><span>Толщина двери, м.</span></div>
+        <div>
+            <input type="text" name="j" required />
+        </div>
+    </div>
+    <div class="btnCalc">
+        <input type="submit" value="Расчет" class="btn btn-default" />
+    </div>
+
+    <div id="resdoors">
+
+    </div>
+
+    <hr />
+}
+
